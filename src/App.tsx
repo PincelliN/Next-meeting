@@ -7,6 +7,7 @@ import VeganGuy from "./asset/tizio_awlq7r.jpg";
 import JacketGuy from "./asset/tizio-giacca_jvzktv.jpg";
 import Meetings from "./components/meetings";
 import { Meeting } from "./types/meeting";
+import { useState } from "react";
 
 function App() {
   const meetings: Meeting[] = [
@@ -44,11 +45,16 @@ function App() {
     },
   ];
 
+  const [meet, setMet] = useState(meetings);
+
+  const handleClick = (id: number) => {
+    setMet((prevStarte) => prevStarte.filter((el) => el.id !== id));
+  };
   return (
     <>
       <div className="App">
         <Headers meetings={meetings.length} />
-        <Meetings meetings={meetings} />
+        <Meetings meetings={meet} remove={handleClick} />
       </div>
     </>
   );

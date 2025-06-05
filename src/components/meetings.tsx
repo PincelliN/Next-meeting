@@ -2,9 +2,10 @@ import { Meeting } from "../types/meeting";
 
 type MeetingProps = {
   meetings: Meeting[];
+  remove: (id: number) => void;
 };
 
-const Meetings: React.FC<MeetingProps> = ({ meetings }) => {
+const Meetings: React.FC<MeetingProps> = ({ meetings, remove }) => {
   return (
     <>
       <div className="container">
@@ -25,7 +26,12 @@ const Meetings: React.FC<MeetingProps> = ({ meetings }) => {
                         </section>
                       </div>
                       <div>
-                        <button className="btn btn-danger">cancella</button>
+                        <button
+                          className="btn btn-danger"
+                          onClick={() => remove(el.id)}
+                        >
+                          Cancella
+                        </button>
                       </div>
                     </div>
                   </div>
