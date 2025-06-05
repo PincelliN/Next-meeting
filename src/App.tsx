@@ -1,25 +1,24 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import Headers from "./components/header";
+import GymGuy from "../public/tizio-palestra_naoqwo.jpg";
+import HeadphonesGirl from "../public/tizia-cuffie_xf2bae.jpg";
+import GlassesGirl from "../public/tipa-occhiali_svc9jp.jpg";
+import VeganGuy from "../public/tizio_awlq7r.jpg";
+import JacketGuy from "../public/tizio-giacca_jvzktv.jpg";
 
 function App() {
+  const meetings = [
+    {
+      id: "",
+    },
+  ];
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <div className="App">
+        <Headers />
+      </div>
+    </>
   );
 }
 
