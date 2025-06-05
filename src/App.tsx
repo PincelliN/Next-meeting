@@ -8,6 +8,7 @@ import JacketGuy from "./asset/tizio-giacca_jvzktv.jpg";
 import Meetings from "./components/meetings";
 import { Meeting } from "./types/meeting";
 import { useState } from "react";
+import Button from "./components/button";
 
 function App() {
   const meetings: Meeting[] = [
@@ -50,11 +51,34 @@ function App() {
   const handleClick = (id: number) => {
     setMet((prevStarte) => prevStarte.filter((el) => el.id !== id));
   };
+
+  const refresh = () => {
+    setMet(meetings);
+  };
+  const deleteAll = () => {
+    setMet([]);
+  };
   return (
     <>
       <div className="App">
-        <Headers meetings={meetings.length} />
+        <Headers meetings={meet.length} />
         <Meetings meetings={meet} remove={handleClick} />
+        <div className="container pb-4">
+          <div className="row d-flex justify-content-between align-items-center m-auto g-5">
+            <Button
+              btn_class="btn btn-primary col-1 fw-bolder"
+              action={refresh}
+              children="Reload"
+              disable={meet.length === meetings.length ? true : false}
+            />
+            <Button
+              btn_class="btn btn-outline-warning col-1 fw-bolder"
+              action={deleteAll}
+              children="Delete All"
+              disable={meet.length === 0 ? true : false}
+            />
+          </div>
+        </div>
       </div>
     </>
   );

@@ -7,7 +7,7 @@ export default function Headers({ meetings }: HeadersProps) {
 
   if (meetings > 1) {
     title = "Prossimi Appuntamenti";
-  } else if (meetings === 0) {
+  } else if (meetings === 1) {
     title = "Prossimo Appuntamento";
   } else {
     title = "Non hai appuntamenti";
